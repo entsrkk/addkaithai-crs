@@ -9,7 +9,7 @@ const notoSansThai = Noto_Sans_Thai({
 });
 
 export const metadata: Metadata = {
-  title: "ร้านแอ๊ดไก่ไทย - POS",
+  title: "ร้านแอ๊ดไก่ไทย - CRS",
   description: "ระบบของร้านสำหรับร้านแอ๊ดไก่ไทย",
 };
 
@@ -20,7 +20,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="th">
-      <body className={`${notoSansThai.variable} antialiased px-4 py-2 h-lvh`}>
+      <body className={`${notoSansThai.variable} antialiased px-4 py-2 h-screen`}>
         {children}
       </body>
     </html>

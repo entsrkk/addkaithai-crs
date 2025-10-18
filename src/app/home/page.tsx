@@ -2,7 +2,7 @@ import React from "react";
 
 const Homepage = () => {
   return (
-    <div className="flex flex-col justify-center items-center pt-28">
+    <div className="flex flex-col justify-center items-center pt-8">
       <h1 className="text-center text-5xl leading-16 font-bold">
         ร้านแอ๊ด
         <br />

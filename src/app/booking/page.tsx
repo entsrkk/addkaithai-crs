@@ -12,7 +12,7 @@ const Bookingpage = () => {
           Back
         </Link>
       </div>
-      <div className="content-center">
+      <div className="content-center text-center">
         <h2 className="text-base">Booking Page</h2>
       </div>
     </div>
