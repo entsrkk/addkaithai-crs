@@ -1,16 +1,15 @@
 import React from "react";
 import Header from "../components/header/Header";
 
-
-const Bookingpage = () => {
+const Calculatepage = () => {
   return (
     <div>
       <Header />
       <div className="h-dvh content-center">
-        <h3 className="text-center">Booking Page</h3>
+        <h3 className="text-center">Calculate Page</h3>
       </div>
     </div>
   );
 };
 
-export default Bookingpage;
+export default Calculatepage;

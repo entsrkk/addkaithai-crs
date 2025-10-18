@@ -1,20 +1,19 @@
 import React from "react";
+import Link from "next/link";
 
 const Homepage = () => {
   return (
-    <div className="flex flex-col justify-center items-center pt-8">
-      <h1 className="text-center text-5xl leading-16 font-bold">
-        ร้านแอ๊ด
-        <br />
-        ไก่ต้มน้ำปลา
+    <div className="flex flex-col items-center pt-16 h-dvh">
+      <h1 className="font-extrabold text-5xl text-center leading-16">
+        ร้านแอ๊ด <br /> ไก่ต้มน้ำปลา
       </h1>
-      <div className="flex flex-col gap-11 mt-20 px-4 w-full">
-        <a href="/booking" className="btn btn-ghost btn-xl rounded-full h-26 border-0 bg-linear-to-r from-blue-500 to-sky-400 text-white">
+      <div className="flex flex-col gap-12 mt-20 px-4 w-full">
+        <Link href="/calculate" className="btn btn-ghost btn-xl rounded-full h-24 bg-red-700/80 text-white border-3 border-black shadow-custom">
           คิดเงิน
-        </a>
-        <a className="btn btn-ghost btn-xl rounded-full h-26 border-0 bg-linear-to-r from-blue-500 to-sky-400 text-white">
+        </Link>
+        <Link href="/booking" className="btn btn-ghost btn-xl rounded-full h-24 bg-yellow-600/80 text-white border-3 border-black shadow-custom">
           สั่งไก่
-        </a>
+        </Link>
       </div>
     </div>
   );

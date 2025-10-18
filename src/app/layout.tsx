@@ -20,7 +20,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="th">
-      <body className={`${notoSansThai.variable} antialiased px-4 py-2 h-screen`}>
+      <body className={`${notoSansThai.variable} antialiased`}>
         {children}
       </body>
     </html>

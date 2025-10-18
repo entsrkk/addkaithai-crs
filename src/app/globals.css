@@ -12,6 +12,10 @@ body {
   font-family: var(--font-noto-sans-thai), system-ui, sans-serif;
 }
 
-  .text-gradient {
-    @apply bg-gradient-to-r from-blue-600 to-sky-600 text-transparent bg-clip-text;
-  }
+.text-gradient {
+  @apply bg-gradient-to-r from-blue-600 to-sky-600 text-transparent bg-clip-text;
+}
+
+.shadow-custom{
+  box-shadow: 3px 3px 0  rgb(0 0 0);
+}
