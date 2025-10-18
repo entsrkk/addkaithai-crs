@@ -1,36 +1,35 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🏪 ระบบแคชเชียร์และบันทึกการจองสินค้าสำหรับร้านค้าครอบครัว (Family Store Cashier & Reservation System)
 
-## Getting Started
+> ระบบนี้ถูกพัฒนาขึ้นเพื่อช่วยบริหารจัดการร้านค้าครอบครัวให้สะดวก รวดเร็ว และมีประสิทธิภาพยิ่งขึ้น  
+> This project was developed to help manage a family-owned store more efficiently and conveniently.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🚀 ฟังก์ชันหลัก (Main Features)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 1. 💰 ระบบคิดเงินและคำนวณเงินทอน  
+ช่วยให้การขายสินค้ามีความรวดเร็วและแม่นยำ โดยระบบจะคำนวณยอดรวมและเงินทอนให้อัตโนมัติ  
+Provides a fast and accurate checkout process by automatically calculating totals and change for customers.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 2. 📱 ระบบการโอนผ่านพร้อมเพย์ (PromptPay Integration)  
+รองรับการชำระเงินผ่านพร้อมเพย์ พร้อมแสดง QR Code สำหรับการโอนเงิน  
+Supports PromptPay QR code payments for seamless and secure transactions.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 3. 🗓️ ระบบบันทึกการจองสินค้าในช่วงเทศกาล  
+ระบบนี้ช่วยให้ร้านสามารถบันทึกข้อมูลการจองสินค้าของลูกค้าในช่วงเทศกาลได้อย่างเป็นระเบียบ  
+ลูกค้าจะเพียงแจ้งรายการสินค้าที่ต้องการจองเท่านั้น ส่วนพนักงานหรือเจ้าของร้านจะเป็นผู้กรอกข้อมูลลงในระบบเอง  
+ระบบจะเก็บรายละเอียดเช่น 
+- ชื่อลูกค้า  
+- รายการสินค้าที่จอง  
+- จำนวนสินค้า  
+- วันที่ต้องการรับสินค้า
 
-## Learn More
+This feature allows the store to record customer pre-orders during festive seasons.  
+Customers only need to inform the store of what they want, and staff manually input the reservation details into the system.  
+The system stores details such as:  
+- Customer name  
+- Reserved items  
+- Quantity  
+- Desired pickup date
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
