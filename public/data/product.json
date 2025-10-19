@@ -1,0 +1,44 @@
+[
+  {
+    "product_id": "1",
+    "product_name": "เครื่องใน",
+    "product_price": 20,
+    "product_image": null
+  },
+  {
+    "product_id": "2",
+    "product_name": "ไก่ 160",
+    "product_price": 160,
+    "product_image": null
+  },
+  {
+    "product_id": "3",
+    "product_name": "ไก่ 170",
+    "product_price": 170,
+    "product_image": null
+  },
+  {
+    "product_id": "4",
+    "product_name": "ไก่ 180",
+    "product_price": 180,
+    "product_image": null
+  },
+  {
+    "product_id": "5",
+    "product_name": "ไก่ 190",
+    "product_price": 190,
+    "product_image": null
+  },
+  {
+    "product_id": "6",
+    "product_name": "ไก่ 200",
+    "product_price": 200,
+    "product_image": null
+  },
+  {
+    "product_id": "7",
+    "product_name": "ไก่จัมโบ้",
+    "product_price": 320,
+    "product_image": null
+  }
+]

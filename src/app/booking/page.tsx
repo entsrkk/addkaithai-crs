@@ -1,14 +1,9 @@
 import React from "react";
-import Header from "../components/header/Header";
-
 
 const Bookingpage = () => {
   return (
     <div>
-      <Header />
-      <div className="h-dvh content-center">
-        <h3 className="text-center">Booking Page</h3>
-      </div>
+      <h3 className="text-center">Booking Page</h3>
     </div>
   );
 };

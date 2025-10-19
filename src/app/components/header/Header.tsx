@@ -18,7 +18,7 @@ const Header = () => {
       <div className="content-center">
         <Link
           href="/"
-          className="btn btn-link no-underline border-0 text-base text-stone-600"
+          className="btn btn-link no-underline border-0 text-sm text-blue-500"
         >
           ย้อนกลับ
         </Link>
