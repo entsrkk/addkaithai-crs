@@ -2,15 +2,22 @@
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 
+interface Product {
+  id: number;
+  product_name: string;
+  product_price: number;
+  product_image?: string;
+}
+
 const Calculatepage = () => {
-  const [products, setProducts] = useState<any[]>([]);
+  const [products, setProducts] = useState<Product[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const res = await fetch("/data/product.json");
         if (!res.ok) throw new Error("Failed to fetch products");
-        const data = await res.json();
+        const data: Product[] = await res.json();
         setProducts(data);
       } catch (err) {
         console.error(err);
