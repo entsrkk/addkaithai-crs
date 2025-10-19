@@ -8,10 +8,10 @@ const Homepage = () => {
         ร้านแอ๊ด <br /> ไก่ต้มน้ำปลา
       </h1>
       <div className="flex flex-col gap-12 mt-20 px-4 w-full">
-        <Link href="/calculate" className="btn btn-ghost btn-xl rounded-full h-24 bg-red-700/80 text-white border-3 border-black shadow-custom">
+        <Link href="/calculate" className="btn btn-ghost btn-xl rounded-full h-26 border0 bg-linear-to-r from-blue-600 to-sky-500 text-white shadow-md">
           คิดเงิน
         </Link>
-        <Link href="/booking" className="btn btn-ghost btn-xl rounded-full h-24 bg-yellow-600/80 text-white border-3 border-black shadow-custom">
+        <Link href="/booking" className="btn btn-ghost btn-xl rounded-full h-26 border-0 bg-linear-to-r from-blue-600 to-sky-500 text-white shadow-md">
           สั่งไก่
         </Link>
       </div>

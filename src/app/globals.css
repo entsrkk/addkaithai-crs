@@ -1,5 +1,7 @@
 @import "tailwindcss";
-@plugin "daisyui";
+ @plugin "daisyui" {
+   themes: light --default;
+ }
 
 :root {
   --background: #ffffff;
@@ -18,4 +20,21 @@ body {
 
 .shadow-custom{
   box-shadow: 3px 3px 0  rgb(0 0 0);
+}
+.join > .join-item:where(:first-child) {
+    --join-ss: .5rem;
+    --join-se: 0;
+    --join-es: .5rem;
+    --join-ee: 0;
+}
+
+.join > .join-item:where(:last-child) {
+    --join-ss: 0;
+    --join-se: .5rem;
+    --join-es: 0;
+    --join-ee: .5rem;
+}
+
+.shadow-inset-bottom-sm{
+  box-shadow: inset 0 -6px 10px rgba(0,0,0,0.04);
 }
