@@ -39,7 +39,7 @@ const ProductRow: React.FC<ProductRowProps> = ({
               ชื่อ: <span className="font-normal">{product.product_name}</span>
             </p>
             <p className="font-semibold">
-              ราคา: <span className="font-normal">{product.product_price}</span>
+              ราคา: <span className="font-normal">฿{product.product_price}</span>
             </p>
           </div>
         </div>
