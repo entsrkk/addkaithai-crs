@@ -30,7 +30,7 @@ const Calculatepage = () => {
     fetchData();
   }, []);
 
-    const handleIncrease = (productId: number) => {
+  const handleIncrease = (productId: number) => {
     setQuantity((prev) => ({
       ...prev,
       [productId]: (prev[productId] || 0) + 1,
@@ -54,7 +54,7 @@ const Calculatepage = () => {
   const reset = () => {
     setQuantity({});
     setGetMoney(0);
-  }
+  };
 
   return (
     <div>
@@ -94,20 +94,20 @@ const Calculatepage = () => {
         </div>
         <div className="w-full p-4 border-b border-gray-200 space-y-2">
           <div className="flex justify-between">
-            <p className="font-bold text-lg">ยอดรวม</p>
-            <p className="font-bold text-lg">
+            <p className="font-bold text-xl">ยอดรวม</p>
+            <p className="font-bold text-xl">
               ฿{total.toLocaleString("th-TH")}
             </p>
           </div>
           <div className="flex justify-between">
-            <p className="font-semibold text-base">เงินลูกค้า</p>
-            <p className="font-semibold text-base">
+            <p className="font-semibold text-lg">เงินลูกค้า</p>
+            <p className="font-semibold text-lg">
               ฿{getMoney.toLocaleString("th-TH")}
             </p>
           </div>
           <div className="flex justify-between">
-            <p className="font-semibold text-base">เงินทอน</p>
-            <p className="font-semibold text-base">
+            <p className="font-semibold text-lg">เงินทอน</p>
+            <p className="font-semibold text-lg">
               ฿{total == 0 ? 0 : customerChange.toLocaleString("th-TH")}
             </p>
           </div>
@@ -117,13 +117,16 @@ const Calculatepage = () => {
         <div className="w-full">
           <Link
             href="/"
-            className="btn btn-ghost btn-lg w-full rounded-full border0 bg-blue-500 text-white"
+            className={`btn btn-ghost btn-lg w-full rounded-full border0  text-white ${total === 0 ? "btn-disabled bg-blue-400" : "bg-blue-500"}`}
           >
             สแกน QR Code
           </Link>
         </div>
         <div>
-          <button className="btn btn-ghost btn-lg w-20 rounded-full border-0 bg-blue-100 text-blue-500" onClick={reset}>
+          <button
+            className="btn btn-ghost btn-lg w-20 rounded-full border-0 bg-blue-100 text-blue-500"
+            onClick={reset}
+          >
             X
           </button>
         </div>
