@@ -4,18 +4,15 @@ import { useSearchParams } from "next/navigation";
 import generatePayload from "promptpay-qr";
 import QRCode from "qrcode";
 
-const scanQRcodepage = () => {
-  const searchParams = useSearchParams();
-  const totalParam = searchParams.get("total") || "";
-  const totalPrice = Number(totalParam) || 0;
+const ScanQRcodePage = ({ searchParams }: { searchParams: { total?: string } }) => {
+  const totalPrice = Number(searchParams.total) || 0;
   const promptpayNumber = "0813585417";
   const promptpayName = "ปัทมา สุระคงคา";
   const [svg, setSvg] = useState("");
 
   useEffect(() => {
-    const total = parseFloat(totalParam);
-    generateQR(total);
-  }, [totalParam]);
+    generateQR(totalPrice);
+  }, [totalPrice]);
 
   const generateQR = (amount: number) => {
     const payload = generatePayload(promptpayNumber, { amount });
@@ -81,4 +78,4 @@ const scanQRcodepage = () => {
   );
 };
 
-export default scanQRcodepage;
+export default ScanQRcodePage;
