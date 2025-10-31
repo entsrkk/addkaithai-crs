@@ -2,7 +2,6 @@
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import ProductRow from "../components/ProductRow";
-import { get } from "http";
 
 interface Product {
   product_id: number;
@@ -57,7 +56,7 @@ const Calculatepage = () => {
   };
 
   return (
-    <div>
+    <>
       <div className="h-fit overflow-y-scroll border-b border-gray-200 shadow-inset-bottom-sm">
         <table className="table table-zebra">
           <thead>
@@ -80,7 +79,7 @@ const Calculatepage = () => {
           </tbody>
         </table>
       </div>
-      <div>
+      <div className="total-section">
         <div className="w-full p-4 border-b border-gray-200">
           <input
             type="number"
@@ -112,26 +111,28 @@ const Calculatepage = () => {
             </p>
           </div>
         </div>
-      </div>
-      <div className="flex justify-between space-x-2 py-2 px-4">
-        <div className="w-full">
-          <Link
-            href="/"
-            className={`btn btn-ghost btn-lg w-full rounded-full border0  text-white ${total === 0 ? "btn-disabled bg-blue-400" : "bg-blue-500"}`}
-          >
-            สแกน QR Code
-          </Link>
+        <div className="flex justify-between space-x-2 p-4">
+          <div className="w-full">
+            <Link
+              href={`/scan-qrcode?total=${total}`}
+              className={`btn btn-ghost btn-lg w-full h-14 rounded-full border-0 text-white shadow-sm ${
+                total === 0 ? "btn-disabled bg-blue-400" : "bg-blue-500"
+              }`}
+            >
+              สแกน QR Code
+            </Link>
+          </div>
+          <div>
+            <button
+              className="btn btn-ghost btn-lg w-20 h-14 rounded-full border-0 bg-blue-100 text-blue-500 shadow-xs"
+              onClick={reset}
+            >
+              X
+            </button>
+          </div>
         </div>
-        <div>
-          <button
-            className="btn btn-ghost btn-lg w-20 rounded-full border-0 bg-blue-100 text-blue-500"
-            onClick={reset}
-          >
-            X
-          </button>
-        </div>
       </div>
-    </div>
+    </>
   );
 };
 
