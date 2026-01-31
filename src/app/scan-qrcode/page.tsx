@@ -4,8 +4,9 @@ import { useSearchParams } from "next/navigation";
 import generatePayload from "promptpay-qr";
 import QRCode from "qrcode";
 
-const ScanQRcodePage = ({ searchParams }: { searchParams: { total?: string } }) => {
-  const totalPrice = Number(searchParams.total) || 0;
+const ScanQRcodePage = () => {
+  const searchParams = useSearchParams();
+  const totalPrice = Number(searchParams.get("total")) || 0;
   const promptpayNumber = "0813585417";
   const promptpayName = "ปัทมา สุระคงคา";
   const [svg, setSvg] = useState("");
