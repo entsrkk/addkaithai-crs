@@ -1,7 +1,8 @@
-@import "tailwindcss";
- @plugin "daisyui" {
-   themes: light --default;
- }
+@import 'tailwindcss';
+
+@plugin "daisyui" {
+  themes: light --default;
+}
 
 :root {
   --background: #ffffff;
@@ -15,7 +16,7 @@ body {
 }
 
 .text-gradient {
-  @apply bg-gradient-to-r from-blue-500 to-sky-500 text-transparent bg-clip-text;
+  @apply bg-linear-to-r from-blue-500 to-sky-500 text-transparent bg-clip-text;
 }
 
 .shadow-custom{
