@@ -63,7 +63,7 @@ const Calculatepage = () => {
             <tr className="border-b-0 text-base">
               <th className="pr-0 pb-0 text-black">รายการ</th>
               <th className="pb-0 px-0 font-medium"></th>
-              <th className="w-[76px] pb-0 pl-0 text-end text-black">ราคา</th>
+              <th className="w-19 pb-0 pl-0 text-end text-black">ราคา</th>
             </tr>
           </thead>
           <tbody>
