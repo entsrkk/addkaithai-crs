@@ -31,6 +31,7 @@ const ProductRow: React.FC<ProductRowProps> = ({
             <img
               src={product.product_image || "/images/placeholder-image.png"}
               alt={product.product_name}
+              loading="lazy"
               className="rounded-lg object-cover w-full h-full"
             />
           </div>
