@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import React, { useEffect, useState, useCallback } from "react";
+import CountUp from "react-countup";
 import ProductRow from "../components/ProductRow";
 import ProductSkeleton from "../components/ProductSkeleton";
 import { Product } from "@/types";
@@ -23,7 +24,7 @@ const Calculatepage = () => {
       } finally {
         setTimeout(() => {
           setLoading(false);
-        }, 1500);
+        }, 200);
       }
     };
     fetchData();
@@ -68,7 +69,7 @@ const Calculatepage = () => {
           </thead>
           <tbody>
             {loading
-              ? Array.from({ length: 7 }).map((_, index) => (
+              ? Array.from({ length: 5 }).map((_, index) => (
                 <ProductSkeleton key={index} />
               ))
               : products.map((product) => (
@@ -99,19 +100,40 @@ const Calculatepage = () => {
           <div className="flex justify-between">
             <p className="font-bold text-xl">ยอดรวม</p>
             <p className="font-bold text-xl">
-              ฿{total.toLocaleString("th-TH")}
+              <CountUp
+                start={0}
+                end={total}
+                duration={1.25}
+                separator=","
+                prefix="฿"
+                preserveValue={true}
+              />
             </p>
           </div>
           <div className="flex justify-between">
             <p className="font-semibold text-lg">เงินลูกค้า</p>
             <p className="font-semibold text-lg">
-              ฿{getMoney.toLocaleString("th-TH")}
+              <CountUp
+                start={0}
+                end={getMoney}
+                duration={1.25}
+                separator=","
+                prefix="฿"
+                preserveValue={true}
+              />
             </p>
           </div>
           <div className="flex justify-between">
             <p className="font-semibold text-lg">เงินทอน</p>
             <p className="font-semibold text-lg">
-              ฿{total == 0 ? 0 : customerChange.toLocaleString("th-TH")}
+              <CountUp
+                start={0}
+                end={customerChange}
+                duration={1.25}
+                separator=","
+                prefix="฿"
+                preserveValue={true}
+              />
             </p>
           </div>
         </div>

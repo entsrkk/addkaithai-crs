@@ -14,9 +14,9 @@ const ProductSkeleton = () => {
             </td>
             <td className="text-end px-0">
                 <div className="join flex justify-end">
-                    <div className="w-8 h-8 bg-gray-200 rounded-l-lg"></div>
-                    <div className="w-10 h-8 bg-gray-200 mx-1"></div>
-                    <div className="w-8 h-8 bg-gray-200 rounded-r-lg"></div>
+                    <div className="w-9 h-9 bg-gray-200 rounded-l-lg"></div>
+                    <div className="w-11 h-9 bg-gray-200 mx-1"></div>
+                    <div className="w-9 h-9 bg-gray-200 rounded-r-lg"></div>
                 </div>
             </td>
             <td className="text-end pl-0">
