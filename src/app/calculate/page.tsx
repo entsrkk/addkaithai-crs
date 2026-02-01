@@ -21,7 +21,9 @@ const Calculatepage = () => {
       } catch (err) {
         console.error(err);
       } finally {
-        setLoading(false);
+        setTimeout(() => {
+          setLoading(false);
+        }, 1500);
       }
     };
     fetchData();
@@ -66,7 +68,7 @@ const Calculatepage = () => {
           </thead>
           <tbody>
             {loading
-              ? Array.from({ length: 5 }).map((_, index) => (
+              ? Array.from({ length: 7 }).map((_, index) => (
                 <ProductSkeleton key={index} />
               ))
               : products.map((product) => (
