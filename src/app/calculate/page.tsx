@@ -2,18 +2,14 @@
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import ProductRow from "../components/ProductRow";
-
-interface Product {
-  product_id: number;
-  product_name: string;
-  product_price: number;
-  product_image?: string;
-}
+import ProductSkeleton from "../components/ProductSkeleton";
+import { Product } from "@/types";
 
 const Calculatepage = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [quantity, setQuantity] = useState<{ [key: number]: number }>({});
   const [getMoney, setGetMoney] = useState<number>(0);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -24,6 +20,8 @@ const Calculatepage = () => {
         setProducts(data);
       } catch (err) {
         console.error(err);
+      } finally {
+        setLoading(false);
       }
     };
     fetchData();
@@ -67,15 +65,19 @@ const Calculatepage = () => {
             </tr>
           </thead>
           <tbody>
-            {products.map((product) => (
-              <ProductRow
-                key={product.product_id}
-                product={product}
-                quantity={quantity}
-                handleIncrease={handleIncrease}
-                handleDecrease={handleDecrease}
-              />
-            ))}
+            {loading
+              ? Array.from({ length: 5 }).map((_, index) => (
+                <ProductSkeleton key={index} />
+              ))
+              : products.map((product) => (
+                <ProductRow
+                  key={product.product_id}
+                  product={product}
+                  quantity={quantity}
+                  handleIncrease={handleIncrease}
+                  handleDecrease={handleDecrease}
+                />
+              ))}
           </tbody>
         </table>
       </div>
@@ -115,9 +117,8 @@ const Calculatepage = () => {
           <div className="w-full">
             <Link
               href={`/scan-qrcode?total=${total}`}
-              className={`btn btn-ghost btn-lg w-full h-14 rounded-full border-0 text-white shadow-sm ${
-                total === 0 ? "btn-disabled bg-blue-400" : "bg-blue-500"
-              }`}
+              className={`btn btn-ghost btn-lg w-full h-14 rounded-full border-0 text-white shadow-sm ${total === 0 ? "btn-disabled bg-blue-400" : "bg-blue-500"
+                }`}
             >
               สแกน QR Code
             </Link>
