@@ -4,6 +4,7 @@ import { useSearchParams } from "next/navigation";
 import generatePayload from "promptpay-qr";
 import QRCode from "qrcode";
 import Image from "next/image";
+import CountUp from "react-countup";
 import { SHOP_INFO } from "../../../lib/constants";
 
 const ScanQRCodeContent = () => {
@@ -77,7 +78,15 @@ const ScanQRCodeContent = () => {
       <div className="total-qr fixed bottom-0 left-0 w-full border-t border-stone-200 p-4">
         <div className="bg-blue-500 rounded-full h-14 content-center shadow-sm">
           <p className="text-center text-white font-semibold text-xl">
-            ฿{totalPrice.toLocaleString("th-TH")}.00
+            <CountUp
+              start={0}
+              end={totalPrice}
+              duration={1.25}
+              separator=","
+              prefix="฿"
+              suffix=".00"
+              preserveValue={true}
+            />
           </p>
         </div>
       </div>

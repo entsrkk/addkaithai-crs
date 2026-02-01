@@ -1,5 +1,6 @@
 "use client";
 import React, { memo } from "react";
+import CountUp from "react-countup";
 import Image from "next/image";
 import { Product } from "@/types";
 
@@ -44,18 +45,18 @@ const ProductRow: React.FC<ProductRowProps> = ({
       <td className="text-end px-0">
         <div className="join">
           <button
-            className="btn join-item w-9 h-8.5 text-lg"
+            className="btn join-item w-9 h-9 text-lg"
             onClick={() => handleDecrease(product.product_id)}
           >
             -
           </button>
           <input
-            className="input join-item w-11 h-8.5 p-0 border ring-0 border-gray-200 bg-white outline-0 text-center text-md"
+            className="input join-item w-11 h-9 p-0 border ring-0 border-gray-200 bg-white outline-0 text-center text-base"
             value={count}
             readOnly
           />
           <button
-            className="btn join-item w-9 h-8.5 text-lg"
+            className="btn join-item w-9 h-9 text-lg"
             onClick={() => handleIncrease(product.product_id)}
           >
             +
@@ -64,7 +65,14 @@ const ProductRow: React.FC<ProductRowProps> = ({
       </td>
       <td className="text-end pl-0">
         <p className="font-medium text-base">
-          ฿{subTotalByID.toLocaleString("th-TH")}
+          <CountUp
+            start={0}
+            end={subTotalByID}
+            duration={1.25}
+            separator=","
+            prefix="฿"
+            preserveValue={true}
+          />
         </p>
       </td>
     </tr>
