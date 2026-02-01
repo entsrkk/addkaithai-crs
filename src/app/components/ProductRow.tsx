@@ -1,23 +1,22 @@
 "use client";
-import React from "react";
+import React, { memo } from "react";
 import Image from "next/image";
 import { Product } from "@/types";
 
 interface ProductRowProps {
   product: Product;
-  quantity: { [key: number]: number };
+  count: number;
   handleIncrease: (productId: number) => void;
   handleDecrease: (productId: number) => void;
 }
 
 const ProductRow: React.FC<ProductRowProps> = ({
   product,
-  quantity,
+  count,
   handleIncrease,
   handleDecrease,
 }) => {
-  const subTotalByID =
-    product.product_price * (quantity[product.product_id] || 0);
+  const subTotalByID = product.product_price * count;
 
   return (
     <tr key={product.product_id} className="border-0">
@@ -29,7 +28,7 @@ const ProductRow: React.FC<ProductRowProps> = ({
               alt={product.product_name}
               width={60}
               height={60}
-              className="rounded-lg object-cover w-[60px] h-[60px]"
+              className="rounded-lg object-cover w-15 h-15"
             />
           </div>
           <div>
@@ -45,18 +44,18 @@ const ProductRow: React.FC<ProductRowProps> = ({
       <td className="text-end px-0">
         <div className="join">
           <button
-            className="btn join-item w-8 h-8.5"
+            className="btn join-item w-9 h-8.5 text-lg"
             onClick={() => handleDecrease(product.product_id)}
           >
             -
           </button>
           <input
-            className="input join-item w-10 h-8.5 p-0 border ring-0 border-gray-200 bg-white outline-0 text-center"
-            value={quantity[product.product_id] || 0}
+            className="input join-item w-11 h-8.5 p-0 border ring-0 border-gray-200 bg-white outline-0 text-center text-md"
+            value={count}
             readOnly
           />
           <button
-            className="btn join-item w-8 h-8.5"
+            className="btn join-item w-9 h-8.5 text-lg"
             onClick={() => handleIncrease(product.product_id)}
           >
             +
@@ -72,4 +71,4 @@ const ProductRow: React.FC<ProductRowProps> = ({
   );
 };
 
-export default ProductRow;
+export default memo(ProductRow);

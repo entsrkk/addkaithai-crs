@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import ProductRow from "../components/ProductRow";
 import ProductSkeleton from "../components/ProductSkeleton";
 import { Product } from "@/types";
@@ -27,19 +27,19 @@ const Calculatepage = () => {
     fetchData();
   }, []);
 
-  const handleIncrease = (productId: number) => {
+  const handleIncrease = useCallback((productId: number) => {
     setQuantity((prev) => ({
       ...prev,
       [productId]: (prev[productId] || 0) + 1,
     }));
-  };
+  }, []);
 
-  const handleDecrease = (productId: number) => {
+  const handleDecrease = useCallback((productId: number) => {
     setQuantity((prev) => ({
       ...prev,
       [productId]: Math.max((prev[productId] || 0) - 1, 0),
     }));
-  };
+  }, []);
 
   const total = products.reduce((total, product) => {
     const productQuantity = quantity[product.product_id] || 0;
@@ -73,7 +73,7 @@ const Calculatepage = () => {
                 <ProductRow
                   key={product.product_id}
                   product={product}
-                  quantity={quantity}
+                  count={quantity[product.product_id] || 0}
                   handleIncrease={handleIncrease}
                   handleDecrease={handleDecrease}
                 />
@@ -86,7 +86,7 @@ const Calculatepage = () => {
           <input
             type="number"
             inputMode="numeric"
-            className="input rounded-lg w-full h-11 border-gray-300 outline-0 ring-0 focus:border-gray-400 duration-300 ease-in-out"
+            className="input rounded-lg w-full h-11 border-gray-300 outline-0 ring-0 focus:border-gray-400 duration-300 ease-in-out text-base"
             placeholder="รับเงินมา"
             value={getMoney === 0 ? "" : getMoney}
             onChange={(e) => setGetMoney(Number(e.target.value))}

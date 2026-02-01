@@ -26,7 +26,7 @@ const ScanQRCodeContent = () => {
     };
     QRCode.toString(payload, options, (err, svg) => {
       if (err) {
-        return console.log(err);
+        return; // Handle error silently or add UI feedback later
       }
       setSvg(svg);
     });
@@ -68,7 +68,6 @@ const ScanQRCodeContent = () => {
           <div className="name-phonenum">
             <p className="font-medium text-xl">{PROMPTPAY_NAME}</p>
             <p className="text-lg">{formatpromptpayNumber(PROMPTPAY_NUMBER)}</p>
-            {/* <p className="font-medium text-lg text-gradient">จำนวน {totalPrice.toLocaleString("th-TH")}.00 บาท</p> */}
           </div>
           <p className="text-zinc-400 text-base">
             ตรวจสอบชื่อและจำนวนเงินให้ถูกต้องก่อนชำระ
