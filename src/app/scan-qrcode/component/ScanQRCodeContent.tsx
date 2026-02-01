@@ -3,12 +3,13 @@ import React, { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import generatePayload from "promptpay-qr";
 import QRCode from "qrcode";
+import Image from "next/image";
+import { SHOP_INFO } from "../../../lib/constants";
 
 const ScanQRCodeContent = () => {
   const searchParams = useSearchParams();
   const totalPrice = Number(searchParams.get("total")) || 0;
-  const promptpayNumber = "0813585417";
-  const promptpayName = "ปัทมา สุระคงคา";
+  const { PROMPTPAY_NUMBER, PROMPTPAY_NAME } = SHOP_INFO;
   const [svg, setSvg] = useState("");
 
   useEffect(() => {
@@ -16,7 +17,7 @@ const ScanQRCodeContent = () => {
   }, [totalPrice]);
 
   const generateQR = (amount: number) => {
-    const payload = generatePayload(promptpayNumber, { amount });
+    const payload = generatePayload(PROMPTPAY_NUMBER, { amount });
     const options: QRCode.QRCodeToStringOptions = {
       type: "svg",
       margin: 0,
@@ -38,16 +39,22 @@ const ScanQRCodeContent = () => {
   return (
     <div className="flex flex-col justify-between h-full pt-8">
       <div className="flex flex-col items-center">
-        <img
+        <Image
           src="/images/prompt-pay-logo.png"
-          alt="prompt-pay-logo"
-          className="w-36"
+          alt="PromptPay Logo"
+          width={144}
+          height={100}
+          className="w-36 h-auto"
+          priority
         />
         {svg ? (
-          <img
+          <Image
             src={`data:image/svg+xml;utf8,${encodeURIComponent(svg)}`}
             alt="PromptPay QR"
+            width={224}
+            height={224}
             className="w-56 h-56 my-4"
+            unoptimized
           />
         ) : (
           <p className="h-56 content-center text-center text-xl font-medium">
@@ -59,8 +66,8 @@ const ScanQRCodeContent = () => {
             แสกน QR เพื่อโอนเข้าบัญชี
           </p>
           <div className="name-phonenum">
-            <p className="font-medium text-xl">{promptpayName}</p>
-            <p className="text-lg">{formatpromptpayNumber(promptpayNumber)}</p>
+            <p className="font-medium text-xl">{PROMPTPAY_NAME}</p>
+            <p className="text-lg">{formatpromptpayNumber(PROMPTPAY_NUMBER)}</p>
             {/* <p className="font-medium text-lg text-gradient">จำนวน {totalPrice.toLocaleString("th-TH")}.00 บาท</p> */}
           </div>
           <p className="text-zinc-400 text-base">

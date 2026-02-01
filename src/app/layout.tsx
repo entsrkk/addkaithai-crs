@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
 import { Noto_Sans_Thai } from "next/font/google";
-import { MantineProvider } from "@mantine/core";
-import "@mantine/core/styles.css";
 import "./globals.css";
 
 const notoSansThai = Noto_Sans_Thai({
@@ -23,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="th" data-theme="light">
       <body className={`${notoSansThai.variable} antialiased`}>
-        <MantineProvider>{children}</MantineProvider>
+        {children}
       </body>
     </html>
   );

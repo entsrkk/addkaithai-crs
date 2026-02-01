@@ -1,14 +1,10 @@
 "use client";
 import React from "react";
+import Image from "next/image";
+import { Product } from "@/types";
 
 interface ProductRowProps {
-  product: {
-    product_id: number;
-    product_name: string;
-    product_price: number;
-    product_image?: string;
-  };
-
+  product: Product;
   quantity: { [key: number]: number };
   handleIncrease: (productId: number) => void;
   handleDecrease: (productId: number) => void;
@@ -27,12 +23,13 @@ const ProductRow: React.FC<ProductRowProps> = ({
     <tr key={product.product_id} className="border-0">
       <td className="pr-0">
         <div className="flex items-center gap-3">
-          <div className="w-15 h-15">
-            <img
+          <div className="w-15 h-15 relative">
+            <Image
               src={product.product_image || "/images/placeholder-image.png"}
               alt={product.product_name}
-              loading="lazy"
-              className="rounded-lg object-cover w-full h-full"
+              width={60}
+              height={60}
+              className="rounded-lg object-cover w-[60px] h-[60px]"
             />
           </div>
           <div>
