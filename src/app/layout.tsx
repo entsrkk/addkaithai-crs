@@ -9,8 +9,15 @@ const notoSansThai = Noto_Sans_Thai({
 });
 
 export const metadata: Metadata = {
-  title: "ร้านแอ๊ดไก่ไทย - CRS",
-  description: "ระบบของร้านสำหรับร้านแอ๊ดไก่ไทย",
+  title: `ร้านแอ๊ดไก่ไทย`,
+  description: "ระบบของร้านสำหรับร้านแอ๊ดไก่ไทย CRS",
+};
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
 };
 
 export default function RootLayout({
