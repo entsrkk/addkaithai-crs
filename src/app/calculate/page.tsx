@@ -2,8 +2,8 @@
 import Link from "next/link";
 import React, { useEffect, useState, useCallback } from "react";
 import CountUp from "react-countup";
-import ProductRow from "../components/ProductRow";
-import ProductSkeleton from "../components/ProductSkeleton";
+import ProductRow from "./component/ProductRow";
+import ProductSkeleton from "../components/skeleton/ProductSkeleton";
 import { Product } from "@/types";
 
 const Calculatepage = () => {
@@ -24,7 +24,7 @@ const Calculatepage = () => {
       } finally {
         setTimeout(() => {
           setLoading(false);
-        }, 150);
+        }, 300);
       }
     };
     fetchData();
