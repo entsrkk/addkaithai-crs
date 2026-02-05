@@ -46,6 +46,7 @@ const ScanQRCodeContent = () => {
           width={144}
           height={100}
           className="w-36 h-auto"
+          loading="eager"
           priority
         />
         {svg ? (
