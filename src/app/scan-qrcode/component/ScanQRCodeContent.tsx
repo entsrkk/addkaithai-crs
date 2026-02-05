@@ -40,40 +40,41 @@ const ScanQRCodeContent = () => {
         <Image
           src="/images/prompt-pay-logo.png"
           alt="PromptPay Logo"
-          width={144}
+          width={288}
           height={100}
           className="w-36 h-auto"
-          loading="eager"
           priority
         />
-        {svg ? (
-          <Image
-            src={`data:image/svg+xml;utf8,${encodeURIComponent(svg)}`}
-            alt="PromptPay QR"
-            width={224}
-            height={224}
-            className="w-56 h-56 my-4"
-            unoptimized
-          />
+
+        {loading ? (
+          <div className="flex flex-col items-center space-y-4">
+            <span className="loading loading-ring loading-lg text-blue-500"></span>
+            <p className="text-zinc-500 animate-pulse">กำลังสร้าง QR Code...</p>
+          </div>
         ) : (
-          <div className="h-56 flex items-center justify-center">
-            <p className="text-center text-xl font-medium">
-              {loading ? "กำลังสร้าง QR Code..." : "เกิดข้อผิดพลาดในการสร้าง QR"}
-            </p>
+          <div className="flex flex-col items-center animate-in fade-in zoom-in duration-500">
+            <Image
+              src={`data:image/svg+xml;utf8,${encodeURIComponent(svg)}`}
+              alt="PromptPay QR"
+              width={240}
+              height={240}
+              className="w-56 h-56 my-4"
+              unoptimized
+            />
+            <div className="content-detail text-center space-y-1.5 mt-2">
+              <p className="text-blue-500 text-xl font-semibold">
+                แสกน QR เพื่อโอนเข้าบัญชี
+              </p>
+              <div className="name-phonenum">
+                <p className="font-medium text-xl">{shopName}</p>
+                <p className="text-lg">{maskedNumber}</p>
+              </div>
+              <p className="text-zinc-400 text-base">
+                ตรวจสอบชื่อและจำนวนเงินให้ถูกต้องก่อนชำระ
+              </p>
+            </div>
           </div>
         )}
-        <div className="content-detail text-center space-y-1.5">
-          <p className="text-blue-500 text-xl font-semibold">
-            แสกน QR เพื่อโอนเข้าบัญชี
-          </p>
-          <div className="name-phonenum">
-            <p className="font-medium text-xl">{shopName || "..."}</p>
-            <p className="text-lg">{maskedNumber || "..."}</p>
-          </div>
-          <p className="text-zinc-400 text-base">
-            ตรวจสอบชื่อและจำนวนเงินให้ถูกต้องก่อนชำระ
-          </p>
-        </div>
       </div>
       <div className="total-qr fixed bottom-0 left-0 w-full border-t border-stone-200 p-4">
         <div className="bg-blue-500 rounded-full h-14 content-center shadow-sm">
