@@ -1,40 +1,37 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
-import generatePayload from "promptpay-qr";
-import QRCode from "qrcode";
 import Image from "next/image";
 import CountUp from "react-countup";
-import { SHOP_INFO } from "../../../lib/constants";
 
 const ScanQRCodeContent = () => {
   const searchParams = useSearchParams();
   const totalPrice = Number(searchParams.get("total")) || 0;
-  const { PROMPTPAY_NUMBER, PROMPTPAY_NAME } = SHOP_INFO;
+
   const [svg, setSvg] = useState("");
+  const [shopName, setShopName] = useState("");
+  const [maskedNumber, setMaskedNumber] = useState("");
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     generateQR(totalPrice);
   }, [totalPrice]);
 
-  const generateQR = (amount: number) => {
-    const payload = generatePayload(PROMPTPAY_NUMBER, { amount });
-    const options: QRCode.QRCodeToStringOptions = {
-      type: "svg",
-      margin: 0,
-      scale: 10,
-      color: { dark: "#000", light: "#fff" },
-    };
-    QRCode.toString(payload, options, (err, svg) => {
-      if (err) {
-        return; // Handle error silently or add UI feedback later
-      }
-      setSvg(svg);
-    });
-  };
+  const generateQR = async (amount: number) => {
+    setLoading(true);
+    try {
+      const res = await fetch(`/api/generate-qr?amount=${amount}`);
+      if (!res.ok) throw new Error("Failed to generate QR");
 
-  const formatpromptpayNumber = (phone: string) => {
-    return phone.replace(/^(\d{3})(\d{3})(\d{4})$/, "$1-xxx-$3");
+      const data = await res.json();
+      setSvg(data.svg);
+      setShopName(data.shopName);
+      setMaskedNumber(data.maskedNumber);
+    } catch (err) {
+      console.error("QR Error:", err);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -59,17 +56,19 @@ const ScanQRCodeContent = () => {
             unoptimized
           />
         ) : (
-          <p className="h-56 content-center text-center text-xl font-medium">
-            กำลังสร้าง QR Code...
-          </p>
+          <div className="h-56 flex items-center justify-center">
+            <p className="text-center text-xl font-medium">
+              {loading ? "กำลังสร้าง QR Code..." : "เกิดข้อผิดพลาดในการสร้าง QR"}
+            </p>
+          </div>
         )}
         <div className="content-detail text-center space-y-1.5">
           <p className="text-blue-500 text-xl font-semibold">
             แสกน QR เพื่อโอนเข้าบัญชี
           </p>
           <div className="name-phonenum">
-            <p className="font-medium text-xl">{PROMPTPAY_NAME}</p>
-            <p className="text-lg">{formatpromptpayNumber(PROMPTPAY_NUMBER)}</p>
+            <p className="font-medium text-xl">{shopName || "..."}</p>
+            <p className="text-lg">{maskedNumber || "..."}</p>
           </div>
           <p className="text-zinc-400 text-base">
             ตรวจสอบชื่อและจำนวนเงินให้ถูกต้องก่อนชำระ

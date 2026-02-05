@@ -25,10 +25,10 @@ const ProductRow: React.FC<ProductRowProps> = ({
         <div className="flex items-center gap-3">
           <div className="w-15 h-15 relative">
             <Image
-              src={product.product_image || "/images/placeholder-image.png"}
+              src={product.product_image || "/images/product_image/placeholder-image.png"}
               alt={product.product_name}
-              width={60}
-              height={60}
+              width={120}
+              height={120}
               className="rounded-lg object-cover w-15 h-15"
             />
           </div>
