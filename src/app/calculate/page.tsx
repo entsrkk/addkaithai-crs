@@ -15,7 +15,7 @@ const Calculatepage = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch("/data/product.json");
+        const res = await fetch("/api/products");
         if (!res.ok) throw new Error("Failed to fetch products");
         const data: Product[] = await res.json();
         setProducts(data);
@@ -24,7 +24,7 @@ const Calculatepage = () => {
       } finally {
         setTimeout(() => {
           setLoading(false);
-        }, 200);
+        }, 100);
       }
     };
     fetchData();
