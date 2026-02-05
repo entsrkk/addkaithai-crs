@@ -24,7 +24,7 @@ const Calculatepage = () => {
       } finally {
         setTimeout(() => {
           setLoading(false);
-        }, 100);
+        }, 150);
       }
     };
     fetchData();
