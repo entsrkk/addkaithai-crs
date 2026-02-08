@@ -7,8 +7,8 @@ import { Product } from "@/types";
 interface ProductRowProps {
   product: Product;
   count: number;
-  handleIncrease: (productId: number) => void;
-  handleDecrease: (productId: number) => void;
+  handleIncrease: (productId: string) => void;
+  handleDecrease: (productId: string) => void;
 }
 
 const ProductRow: React.FC<ProductRowProps> = ({
@@ -20,7 +20,7 @@ const ProductRow: React.FC<ProductRowProps> = ({
   const subTotalByID = product.product_price * count;
 
   return (
-    <tr key={product.product_id} className="border-0">
+    <tr key={product._id} className="border-0">
       <td className="pr-0">
         <div className="flex items-center gap-3">
           <div className="w-15 h-15 relative">
@@ -46,7 +46,7 @@ const ProductRow: React.FC<ProductRowProps> = ({
         <div className="join">
           <button
             className="btn join-item w-9 h-9 text-lg"
-            onClick={() => handleDecrease(product.product_id)}
+            onClick={() => handleDecrease(product._id)}
           >
             -
           </button>
@@ -57,7 +57,7 @@ const ProductRow: React.FC<ProductRowProps> = ({
           />
           <button
             className="btn join-item w-9 h-9 text-lg"
-            onClick={() => handleIncrease(product.product_id)}
+            onClick={() => handleIncrease(product._id)}
           >
             +
           </button>

@@ -8,7 +8,7 @@ import { Product } from "@/types";
 
 const Calculatepage = () => {
   const [products, setProducts] = useState<Product[]>([]);
-  const [quantity, setQuantity] = useState<{ [key: number]: number }>({});
+  const [quantity, setQuantity] = useState<{ [key: string]: number }>({});
   const [getMoney, setGetMoney] = useState<number>(0);
   const [loading, setLoading] = useState(true);
 
@@ -30,14 +30,14 @@ const Calculatepage = () => {
     fetchData();
   }, []);
 
-  const handleIncrease = useCallback((productId: number) => {
+  const handleIncrease = useCallback((productId: string) => {
     setQuantity((prev) => ({
       ...prev,
       [productId]: (prev[productId] || 0) + 1,
     }));
   }, []);
 
-  const handleDecrease = useCallback((productId: number) => {
+  const handleDecrease = useCallback((productId: string) => {
     setQuantity((prev) => ({
       ...prev,
       [productId]: Math.max((prev[productId] || 0) - 1, 0),
@@ -45,7 +45,7 @@ const Calculatepage = () => {
   }, []);
 
   const total = products.reduce((total, product) => {
-    const productQuantity = quantity[product.product_id] || 0;
+    const productQuantity = quantity[product._id] || 0;
     return total + product.product_price * productQuantity;
   }, 0);
 
@@ -74,9 +74,9 @@ const Calculatepage = () => {
               ))
               : products.map((product) => (
                 <ProductRow
-                  key={product.product_id}
+                  key={product._id}
                   product={product}
-                  count={quantity[product.product_id] || 0}
+                  count={quantity[product._id] || 0}
                   handleIncrease={handleIncrease}
                   handleDecrease={handleDecrease}
                 />
