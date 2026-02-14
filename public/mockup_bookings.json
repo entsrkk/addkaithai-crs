@@ -1,0 +1,70 @@
+[
+    {
+        "customerName": "คุณสมชาย ใจดี",
+        "phoneNumber": "+66812345678",
+        "bookingDate": "2026-02-15T10:00:00Z",
+        "items": [
+            {
+                "productId": "698588ea810069424ddd800b",
+                "name": "ไก่ 180",
+                "price": 180,
+                "quantity": 2
+            },
+            {
+                "productId": "698588ea810069424ddd8008",
+                "name": "เครื่องใน",
+                "price": 20,
+                "quantity": 3
+            }
+        ],
+        "isPickedUp": true
+    },
+    {
+        "customerName": "คุณนิติ สุระคงคา",
+        "phoneNumber": "+66917582874",
+        "bookingDate": "2026-02-16T12:00:00Z",
+        "items": [
+            {
+                "productId": "698588ea810069424ddd800e",
+                "name": "ไก่จัมโบ้",
+                "price": 350,
+                "quantity": 1
+            }
+        ],
+        "isPickedUp": false
+    },
+    {
+        "customerName": "คุณวิภาวรรณ สวยงาม",
+        "phoneNumber": "+66998887777",
+        "bookingDate": "2026-02-16T12:30:00Z",
+        "items": [
+            {
+                "productId": "698588ea810069424ddd800d",
+                "name": "ไก่ 200",
+                "price": 250,
+                "quantity": 1
+            },
+            {
+                "productId": "698588ea810069424ddd8008",
+                "name": "เครื่องใน",
+                "price": 20,
+                "quantity": 2
+            }
+        ],
+        "isPickedUp": false
+    },
+    {
+        "customerName": "คุณมานะ อดทน",
+        "phoneNumber": "+66829990000",
+        "bookingDate": "2026-02-14T18:00:00Z",
+        "items": [
+            {
+                "productId": "698588ea810069424ddd800d",
+                "name": "ไก่ 190",
+                "price": 190,
+                "quantity": 5
+            }
+        ],
+        "isPickedUp": false
+    }
+]
