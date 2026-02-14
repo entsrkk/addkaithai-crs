@@ -6,7 +6,7 @@ import { ObjectId } from 'mongodb';
 export async function GET() {
     try {
         const db = await getDatabase();
-        const products = await db.collection('products').find({}).toArray();
+        const products = await db.collection('products').find({}).sort({ _id: 1 }).toArray();
 
         return NextResponse.json(products, {
             headers: {
