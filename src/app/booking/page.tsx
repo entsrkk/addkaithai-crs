@@ -63,8 +63,9 @@ const BookingPage = () => {
 
   return (
     <div className="booking-page p-4 sm:p-6 lg:p-8 max-w-7xl mx-auto">
-      <div className={`sticky top-[72px] z-20 -mx-4 px-4 py-2 bg-white/80 backdrop-blur-md mb-4 transition-all duration-300 ${isScrolled ? "border-b border-stone-200/60 shadow-xs" : "border-b border-transparent"}`}>
+      <div className={`sticky top-18 z-20 -mx-4 px-4 py-2 bg-white/80 backdrop-blur-md mb-4 transition-all duration-300 ${isScrolled ? "border-b border-stone-200/60 shadow-xs" : "border-b border-transparent"}`}>
         <Tabs
+          color="var(--color-blue-500)"
           variant="pills"
           defaultValue="ทั้งหมด"
           value={activeTab}
@@ -73,7 +74,7 @@ const BookingPage = () => {
         >
           <Tabs.List grow justify="space-between" className="booking-page__tabs-list bg-stone-100 p-1.5 rounded-xl font-medium border border-stone-200/50">
             {tabs.map((tab) => (
-              <Tabs.Tab key={tab} value={tab} className="booking-page__tab rounded-lg text-xs sm:text-sm">
+              <Tabs.Tab key={tab} value={tab} className="booking-page__tab rounded-lg! text-xs sm:text-sm">
                 {tab}
               </Tabs.Tab>
             ))}

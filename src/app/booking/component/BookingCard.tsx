@@ -38,20 +38,20 @@ const BookingCard: React.FC<BookingCardProps> = ({ booking, index, onTogglePicku
         <div className="booking-card bg-white rounded-2xl shadow-sm border border-stone-200/50 overflow-hidden hover:shadow-md transition-shadow duration-300 flex flex-col h-full">
             <div className="booking-card__body p-4 flex flex-col h-full">
                 <div className="booking-card__header flex justify-between items-center mb-2">
-                    <div className="booking-card__customer flex-grow min-w-0">
+                    <div className="booking-card__customer grow min-w-0">
                         <h3 className="booking-card__name font-bold text-lg text-stone-800 truncate leading-tight">
                             #{index + 1} {booking.customerName}
                         </h3>
                         <a
                             href={`tel:${booking.phoneNumber}`}
-                            className="booking-card__phone text-blue-600 font-medium hover:underline transition-all duration-200"
+                            className="booking-card__phone text-blue-500 font-medium hover:underline transition-all duration-200"
                         >
                             {formatPhoneNumber(booking.phoneNumber)}
                         </a>
                     </div>
                     <div className="booking-card__price-tag text-right ml-2">
                         <span className="block text-xs text-stone-400 font-semibold uppercase tracking-wider leading-none mb-1">ยอดรวม</span>
-                        <span className="text-lg font-extrabold text-blue-600 leading-none">
+                        <span className="text-lg font-extrabold text-blue-500 leading-none">
                             ฿{bookingTotal.toLocaleString()}
                         </span>
                     </div>
@@ -75,7 +75,7 @@ const BookingCard: React.FC<BookingCardProps> = ({ booking, index, onTogglePicku
                     )}
                 </div>
 
-                <div className="booking-card__items space-y-2.5 flex-grow">
+                <div className="booking-card__items space-y-2.5 grow">
                     {booking.items.map((item, i) => (
                         <div key={i} className="booking-card__item flex justify-between items-center text-sm">
                             <div className="booking-card__item-info flex items-center gap-2">
@@ -110,14 +110,14 @@ const BookingCard: React.FC<BookingCardProps> = ({ booking, index, onTogglePicku
                         {!booking.isPickedUp ? (
                             <button
                                 onClick={() => onTogglePickup(index)}
-                                className="booking-card__action-btn mt-1 w-full py-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg transition-all active:scale-[0.97]"
+                                className="booking-card__action-btn mt-3 w-full py-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg transition-all active:scale-[0.97]"
                             >
                                 รับสินค้าแล้ว
                             </button>
                         ) : (
                             <button
                                 onClick={() => onTogglePickup(index)}
-                                className="booking-card__undo-btn mt-1 w-full py-3 bg-red-600 hover:bg-red-700 text-white rounded-lg transition-all active:scale-[0.97]"
+                                className="booking-card__undo-btn mt-3 w-full py-3 bg-red-600 hover:bg-red-700 text-white rounded-lg transition-all active:scale-[0.97]"
                             >
                                 ยกเลิก
                             </button>
