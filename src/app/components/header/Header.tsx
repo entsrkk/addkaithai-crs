@@ -7,7 +7,7 @@ const Header = () => {
   const prevUrl = useRouter().back;
   const pageTitle: Record<string, string> = {
     "/calculate": "คิดเงิน",
-    "/booking": "สั่งไก่",
+    "/booking": "รายการสั่งไก่",
     "/scan-qrcode": "QR Code",
   };
 

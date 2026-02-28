@@ -9,7 +9,7 @@ export default function RootLayout({
   return (
     <div>
       <Header />
-      <div className="h-dvh content-center">
+      <div className="h-[calc(100dvh-64px)]">
         {children}
       </div>
     </div>

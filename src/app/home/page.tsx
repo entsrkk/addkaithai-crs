@@ -12,7 +12,7 @@ const Homepage = () => {
           คิดเงิน
         </Link>
         <Link href="/booking" className="btn btn-ghost btn-xl rounded-full h-26 border-0 bg-linear-to-r from-blue-600 to-sky-500 text-white shadow-md">
-          สั่งไก่
+          รายการสั่งไก่
         </Link>
       </div>
     </div>
